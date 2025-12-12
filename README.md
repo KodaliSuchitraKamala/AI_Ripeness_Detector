@@ -185,7 +185,7 @@ Where $r \sim U(-1, 1)$
 #### Width/Height Shift
 $x' = x + w \times 0.2 \times r_x$
 $y' = y + h \times 0.2 \times r_y$
-Where $r_x, r_y \sim U(-1, 1)$, and $\(w, h\) $are image dimensions
+Where $r_x, r_y \sim U(-1, 1)$, and $(w, h)$ are image dimensions
 
 #### Zoom Augmentation
 $s = 1 + 0.2 \times r$
