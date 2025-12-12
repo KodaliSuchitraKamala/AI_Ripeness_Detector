@@ -125,7 +125,7 @@ Where:
 
 ### 2. Adam Optimizer Update Rules
 
-$$\begin{aligned}m_t &= \beta_1 \, m_{t-1} + (1 - \beta_1) \, g_t \v_t &= \beta_2 \, v_{t-1} + (1 - \beta_2) \, g_t^2 \\\hat{m}_t &= \frac{m_t} {1 - \beta_1^t} \\\hat{v}_t &= \frac{v_t}{1 - \beta_2^t} \\\theta_{t+1} &= \theta_t - \frac{\eta}{\sqrt{\hat{v}_t} + \epsilon} \hat{m}_t\end{aligned}$$
+$$\begin{aligned}m_t &= \beta_1 \, m_{t-1} + (1 - \beta_1) \, g_t \\v_t &= \beta_2 \, v_{t-1} + (1 - \beta_2) \, g_t^2 \\\hat{m}_t &= \frac{m_t} {1 - \beta_1^t} \\\hat{v}_t &= \frac{v_t}{1 - \beta_2^t} \\\theta_{t+1} &= \theta_t - \frac{\eta}{\sqrt{\hat{v}_t} + \epsilon} \hat{m}_t\end{aligned}$$
 
 Where:
 - $\theta_t$: Parameters at time step $t$
@@ -150,7 +150,7 @@ $\text{Recall} = \frac{TP}{TP + FN}$
 $F_1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}$
 
 ### 4. Learning Rate Scheduling (ReduceLROnPlateau)
-$\text{new\_lr} = \text{old\_lr} \times \text{factor}$
+$\text{new\_lr} = \text{old\_lr} \times \text{factor}.$
 
 Where:
 - `factor=0.2` (reduces learning rate by 80%)
