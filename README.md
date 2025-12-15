@@ -471,6 +471,87 @@ In Model directory
 - **Performance Metrics**: Detailed model evaluation and visual analytics
 - **Responsive Design**: Works seamlessly on both desktop and mobile devices
 
+## 🏗️ System Design
+
+This section outlines the architectural design and component interactions of the Fruit Ripeness Detection System.
+
+### System Architecture
+
+The system follows a client-server architecture with the following key components:
+
+1. **Frontend**: Streamlit-based web interface for user interaction
+2. **Backend**: Python-based server handling image processing and model inference
+3. **Deep Learning Model**: EfficientNetB0 for fruit ripeness classification
+4. **Storage**: Local file system for storing models and temporary image uploads
+
+### Component Diagrams
+
+#### Use Case Diagram
+![Use Case Diagram](Use%20Case.png)
+
+*Figure 2: Use Case Diagram showing the interactions between users and the system*
+
+Key Actors and Use Cases:
+- **User**: Can upload images, view results, and get storage recommendations
+- **System**: Processes images, classifies ripeness, and provides storage advice
+- **Admin**: Manages the model, views analytics, and updates the system
+
+#### Class Diagram
+![Class Diagram](Class%20Diagram.png)
+
+*Figure 3: Class Diagram illustrating the system's object-oriented structure*
+
+Key Classes:
+- `RipenessDetector`: Handles model loading and prediction
+- `DataPreprocessor`: Manages image preprocessing and augmentation
+- `StreamlitApp`: Implements the web interface
+- `ModelTrainer`: Handles model training and evaluation
+- `StorageAdvisor`: Provides fruit storage recommendations
+
+#### Sequence Diagram
+![Sequence Diagram](Sequence%20Diagram.png)
+
+*Figure 4: Sequence Diagram showing the flow of operations between system components*
+
+Key Interactions:
+1. User uploads fruit image through the web interface
+2. System preprocesses the image
+3. Model performs inference
+4. Results are formatted and displayed to the user
+5. Storage recommendations are generated based on the prediction
+
+#### Activity Diagram
+![Activity Diagram](Activity%20Diagram.png)
+
+*Figure 5: Activity Diagram depicting the workflow of the ripeness detection process*
+
+Process Flow:
+1. Start with image capture/upload
+2. Preprocess image (resize, normalize)
+3. Pass through the neural network
+4. Process model output
+5. Generate and display results
+
+#### Deployment Diagram
+![Deployment Diagram](Deployment%20Diagram.png)
+
+*Figure 6: Deployment Diagram showing the system's architecture and component distribution*
+
+Deployment Components:
+- **Client Device**: User's web browser
+- **Web Server**: Hosts the Streamlit application
+- **Model Server**: Handles model inference
+- **Database**: Stores user data and prediction history (if implemented)
+- **Storage**: For model weights and uploaded images
+
+### Data Flow
+1. User uploads an image through the web interface
+2. Image is sent to the backend server
+3. Preprocessing transforms the image for the model
+4. Model processes the image and returns predictions
+5. Results are formatted and sent back to the user
+6. Storage recommendations are generated based on the prediction
+
 ## 🤝 Contributing
 
 We welcome contributions to improve this project! Here's how you can help:
