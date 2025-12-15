@@ -32,15 +32,39 @@ def explore_dataset(data_dir):
             img_path = os.path.join(class_dir, img_name)
             class_images[class_name] = img_path
     
-    # Plot class distribution
-    plt.figure(figsize=(10, 6))
-    sns.barplot(x=list(class_counts.keys()), y=list(class_counts.values()))
-    plt.title('Class Distribution')
-    plt.xlabel('Class')
-    plt.ylabel('Number of Images')
-    plt.xticks(rotation=45)
+    # Plot class distribution with enhanced styling
+    plt.figure(figsize=(12, 8))
+    
+    # Sort classes by count for better visualization
+    sorted_classes = sorted(class_counts.items(), key=lambda x: x[1], reverse=True)
+    classes = [x[0] for x in sorted_classes]
+    counts = [x[1] for x in sorted_classes]
+    total = sum(counts)
+    
+    # Create a color gradient based on count values
+    colors = plt.cm.viridis(np.linspace(0.2, 0.9, len(classes)))
+    
+    # Create horizontal bar plot
+    bars = plt.barh(classes, counts, color=colors, edgecolor='black', alpha=0.8)
+    
+    # Add count and percentage labels
+    for i, (count, bar) in enumerate(zip(counts, bars.patches)):
+        percentage = f'{(count/total)*100:.1f}%'
+        plt.text(bar.get_width() + max(counts)*0.01, 
+                bar.get_y() + bar.get_height()/2,
+                f'{count} ({percentage})',
+                va='center', ha='left', fontsize=10, fontweight='bold')
+    
+    # Customize the plot
+    plt.title('Class Distribution', fontsize=14, fontweight='bold', pad=20)
+    plt.xlabel('Number of Images', fontsize=12, labelpad=10)
+    plt.ylabel('Class', fontsize=12, labelpad=10)
+    plt.grid(axis='x', linestyle='--', alpha=0.7)
+    plt.gca().invert_yaxis()  # Highest count at the top
     plt.tight_layout()
-    plt.savefig('logs/class_distribution.png')
+    
+    # Save the figure with high resolution
+    plt.savefig('logs/class_distribution.png', dpi=300, bbox_inches='tight')
     plt.close()
     
     # Display sample images
