@@ -123,6 +123,111 @@ The fruit ripeness detection system employs a deep learning-based approach using
 - Confusion matrix
 - Classification report (precision, recall, f1-score)
 
+## 🔍 Model Terminology
+
+### A. Transfer Learning
+- **Definition**: Leveraging a pre-trained model's learned features on a new, related problem
+- **In This Project**: Using EfficientNetB0 pre-trained on ImageNet as feature extractor
+- **Benefits**:
+  - Reduces training time
+  - Requires less data
+  - Often achieves better performance than training from scratch
+
+### B. Convolutional Neural Networks (CNNs)
+- **Definition**: Deep learning models specifically designed for processing structured grid data like images
+- **In This Project**: The backbone of our ripeness detection system
+- **Key Components**:
+  - Convolution Layers for feature extraction
+  - Pooling layers for dimensionality reduction
+  - Dense layers for classification
+
+### C. EfficientNetB0
+EfficientNetB0 is a convolutional neural network architecture that achieves state-of-the-art accuracy with significantly fewer parameters and FLOPS compared to previous models.
+
+#### Key Features:
+- **Compound Scaling**: Uses a compound coefficient to uniformly scale network width, depth, and resolution
+- **Mobile Inverted Bottleneck MBConv**: Main building block using depthwise separable convolutions with squeeze-and-excitation optimization
+- **Efficient Architecture**: 8.4x fewer parameters and 16x fewer FLOPS than ResNet-50
+
+#### Architecture Details:
+- **Input Resolution**: 224x224 pixels
+- **Parameters**: ~5.3 million
+- **Top-1 Accuracy on ImageNet**: 77.1%
+- **Top-5 Accuracy on ImageNet**: 93.3%
+- **FLOPS**: 0.39B
+
+### D. Activation Functions
+- **ReLU (Rectified Linear Unit)**:
+  - Formula: f(x) = max(0,x)
+  - Used in hidden layers
+  - Mitigates vanishing gradient problem
+- **Softmax**:
+  - Used in output layer
+  - Converts logits to probabilities
+  - Ensures output sums to 1 for multi-class classification
+
+### E. Regularization Techniques
+- **Dropout (0.5)**:
+  - Randomly sets 50% of input units to 0 during training
+  - Prevents overfitting
+- **Data Augmentation**:
+  - Artificially expands training data
+  - Improves model generalization
+  - Includes rotation, shifting, and flipping
+
+### F. Optimization
+- **Adam Optimizer**:
+  - Adaptive learning rate optimization algorithm 
+  - Combines benefits of RMSprop and momentum
+  - Default learning rate: 0.001
+- **Learning Rate Scheduling**:
+  - Reduces learning rate when model stops improving
+  - Helps fine-tune the model
+
+### G. Performance Metrics
+- **Accuracy**: (TP + TN) / (TP + TN + FP + FN)
+- **Precision**: TP / (TP + FP)
+- **Recall**: TP / (TP + FN)
+- **F1-Score**: 2 * (Precision * Recall) / (Precision + Recall)
+
+### H. Model Architecture Components
+- **Global Average Pooling**:
+  - Reduces spatial dimensions to 1x1
+  - More parameter-efficient than Flatten
+  - Reduces overfitting
+- **Dense Layers**:
+  - Fully connected layers
+  - 512 neurons in hidden layer
+  - ReLU activation for non-linearity
+
+### I. Callbacks
+- **ModelCheckpoint**:
+  - Saves the best model during training
+  - Monitors validation accuracy
+- **EarlyStopping**:
+  - Stops training when validation loss stops improving
+  - Patience = 5 epochs
+- **ReduceLROnPlateau**:
+  - Reduces learning rate when learning stagnates
+  - Factor = 0.2, patience = 3
+
+### J. Data Preprocessing
+- **Image Normalization**:
+  - Scales pixel values to [0, 1] range
+  - Improves training stability
+- **Resizing**:
+  - All images resized to 224x224 pixels
+  - Matches EfficientNetB0 input requirements
+
+### K. Model Output
+- **Three-Class Classification**:
+  - Unripe: 0
+  - Ripe: 1
+  - Overripe: 2
+- **Confidence Scores**:
+  - Probability distribution over classes
+  - Sums to 1.0
+
 ## 🧮 Mathematical Foundations
 
 This section documents all the key mathematical formulations used in the project's implementation.
