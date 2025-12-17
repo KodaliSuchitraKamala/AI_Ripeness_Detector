@@ -69,19 +69,34 @@ To improve model generalization, the following augmentations are applied during 
 ![Architecture Diagram](architecture.png)
 *Figure 1: High-level architecture of the Fruit Ripeness Detection System*
 
-The ripeness detection system is built using a deep learning model based on transfer learning with EfficientNetB0 as the backbone. The architecture is implemented in the `RipenessDetector` class in `model.py`.
+The fruit ripeness detection system employs a deep learning-based approach using transfer learning with EfficientNetB0 as the backbone architecture. The system processes input images through multiple stages to classify fruit ripeness.
 
-### Base Model
-- **Backbone**: EfficientNetB0 pre-trained on ImageNet
+### Input Layer
 - **Input Shape**: (224, 224, 3) - RGB images resized to 224x224 pixels
-- **Base Model Weights**: Frozen during initial training to leverage pre-trained features
+- **Preprocessing**: Images are normalized and preprocessed according to EfficientNetB0 requirements
 
-### Custom Layers
-1. **Global Average Pooling**: Reduces spatial dimensions while maintaining channel information
-2. **Dense Layer**: 512 neurons with ReLU activation
-   - Dropout rate: 0.5 (for regularization)
-3. **Output Layer**: Dense layer with softmax activation
-   - 3 output units (Unripe, Ripe, Overripe)
+### Backbone Network
+- **Base Model**: EfficientNetB0 pre-trained on ImageNet
+- **Weights**: Initialized with pre-trained weights (frozen during initial training)
+- **Feature Extraction**: The model extracts hierarchical features through multiple convolutional blocks
+
+### Classification Head
+1. **Global Average Pooling**:
+   - Reduces spatial dimensions to 1x1
+   - Captures global context
+   - Reduces parameter count compared to flattening
+
+2. **Dense Layer**:
+   - 512 neurons with ReLU activation
+   - Dropout (0.5) for regularization
+   - Batch Normalization for stable training
+
+3. **Output Layer**:
+   - Dense layer with softmax activation
+   - 3 output units representing ripeness classes:
+     - Unripe
+     - Ripe
+     - Overripe
 
 ### Training Configuration
 - **Optimizer**: Adam
