@@ -1,0 +1,69 @@
+{
+    "freshapples": {
+        "precision": 0.9777227722772277,
+        "recall": 1.0,
+        "f1-score": 0.9887359198998749,
+        "support": 395.0
+    },
+    "freshbanana": {
+        "precision": 0.9870466321243523,
+        "recall": 1.0,
+        "f1-score": 0.9934810951760105,
+        "support": 381.0
+    },
+    "freshoranges": {
+        "precision": 0.9948586118251928,
+        "recall": 0.9974226804123711,
+        "f1-score": 0.9961389961389961,
+        "support": 388.0
+    },
+    "rottenapples": {
+        "precision": 0.9983221476510067,
+        "recall": 0.9900166389351082,
+        "f1-score": 0.9941520467836257,
+        "support": 601.0
+    },
+    "rottenbanana": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 530.0
+    },
+    "rottenoranges": {
+        "precision": 1.0,
+        "recall": 0.9925558312655087,
+        "f1-score": 0.9962640099626401,
+        "support": 403.0
+    },
+    "unripe apple": {
+        "precision": 0.9914285714285714,
+        "recall": 0.9353099730458221,
+        "f1-score": 0.9625520110957004,
+        "support": 371.0
+    },
+    "unripe banana": {
+        "precision": 0.9949238578680203,
+        "recall": 0.98,
+        "f1-score": 0.9874055415617129,
+        "support": 400.0
+    },
+    "unripe orange": {
+        "precision": 0.9172413793103448,
+        "recall": 0.9851851851851852,
+        "f1-score": 0.95,
+        "support": 270.0
+    },
+    "accuracy": 0.9876972452527414,
+    "macro avg": {
+        "precision": 0.9846159969427463,
+        "recall": 0.9867211454271106,
+        "f1-score": 0.985414402290951,
+        "support": 3739.0
+    },
+    "weighted avg": {
+        "precision": 0.9881537121092041,
+        "recall": 0.9876972452527414,
+        "f1-score": 0.9877287255944194,
+        "support": 3739.0
+    }
+}
