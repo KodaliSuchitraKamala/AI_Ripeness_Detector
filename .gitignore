@@ -1,0 +1,29 @@
+# Bytes and python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Data and Models
+Data/
+models/
+logs/
+
+# Large images/diagrams
+# architecture.png
+# workflow.png
+
+# Keep core diagrams
+# Activity Diagram.png
+# Class Diagram.png
+# Deployment Diagram.png
+# Sequence Diagram.png
+# Use Case.png
+
+# Virtual environments
+venv/
+env/
+.env
+
+# IDEs
+.vscode/
+.idea/
