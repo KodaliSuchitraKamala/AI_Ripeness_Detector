@@ -575,15 +575,17 @@ To retrain the model with your own dataset:
 4. **Access the web interface** at `http://localhost:8501`
 
 ## Results
-Watch the video of the process worked in the Project [![Watch the video]()](./Project_working_video.mp4)
-
-The results that came while running the [train.py](train.py)
+The results that came while running the  [data_preprocessing.py](data_preprocessing.py)
 
 In Log directory
 
 ![Class Distribution](logs/class_distribution.png) 
 
 ![Sample Images](logs/sample_images.png)
+
+The results that came while running the [train.py](train.py)
+
+In Log directory
 
 ![Confusion Matrix](logs/confusion_matrix.png)
 
